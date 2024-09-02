@@ -18,7 +18,7 @@ def btcnok(btc_usd_data):
     btc_usd_df.set_index('Date', inplace=True)
 
     # Read USD/NOK data from local file
-    usd_nok_file = os.path.join('src/btcnok/data', 'norges-bank-usd-nok-from-2010-07-16-to-2014-06-01.csv')
+    usd_nok_file = os.path.join('src/btc_nok_reconstruction/data', 'norges-bank-usd-nok-from-2010-07-16-to-2014-06-01.csv')
     usd_nok_data = pd.read_csv(usd_nok_file, sep=';', decimal=',', thousands=' ', parse_dates=['TIME_PERIOD'])
     usd_nok_data = usd_nok_data.rename(columns={'TIME_PERIOD': 'Date', 'OBS_VALUE': 'USD_NOK'})
     usd_nok_data.set_index('Date', inplace=True)
@@ -52,7 +52,7 @@ def btcnok(btc_usd_data):
 
     # Create final CSV
     try:
-        csv_path = 'btc_nok_historical.csv'
+        csv_path = 'btc-nok-price-history-reconstruction.csv'
         final_data.to_csv(csv_path, index=False)
         print(f"CSV file '{csv_path}' has been created with {len(final_data)} rows.")
         print(f"File path: {os.path.abspath(csv_path)}")

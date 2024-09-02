@@ -5,7 +5,7 @@ def mtgox():
    
 
     # Set the data directory
-    data_dir = 'src/btcnok/data'
+    data_dir = 'src/btc_nok_reconstruction/data'
 
     # Read BTC/USD data from MtGox
     btc_usd_file = os.path.join(data_dir, 'mtgox-btc-usd-from-2010-07-17-to-2014-02-25.csv')

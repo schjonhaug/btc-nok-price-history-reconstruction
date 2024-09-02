@@ -1,7 +1,7 @@
 [project]
-name = "btcnok"
+name = "btc-nok-price-history-reconstruction"
 version = "0.1.0"
-description = "Add your description here"
+description = "Reconstruct the BTC/NOK price history from 2010 to 2014"
 authors = [
     { name = "Andreas Schjønhaug", email = "andreas@schjonhaug.com" }
 ]
@@ -12,7 +12,7 @@ readme = "README.md"
 requires-python = ">= 3.8"
 
 [project.scripts]
-"btcnok" = "btcnok:main"
+"btc_nok_reconstruction" = "btc_nok_reconstruction:main"
 
 [tool.rye]
 managed = true

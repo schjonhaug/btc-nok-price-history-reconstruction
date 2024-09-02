@@ -16,7 +16,7 @@ These are the data sources used to reconstruct the price history:
 * [Norges Bank](https://data.norges-bank.no/api/data/EXR/B.USD.NOK.SP?format=csv&startPeriod=2010-07-16&endPeriod=2014-06-01&bom=include) USD/NOK exchange rates from 2010-2014
 
 
- They are saved in the `src/btcnok/data` folder and are the basis for the reconstructions.
+ They are saved in the `src/btc_nok_reconstruction/data` folder and are the basis for the reconstructions.
 
 
 
@@ -28,7 +28,7 @@ These are the data sources used to reconstruct the price history:
 
 ```sh
 rye sync
-rye run btcnok
+rye run btc_nok_reconstruction
 ```
 
-This will create a CSV file in the root folder called `btc_nok_historical.csv` with the reconstructed BTC/NOK price history.
+This will create a CSV file in the root folder called [btc-nok-price-history-reconstruction.csv](btc-nok-price-history-reconstruction.csv) with the reconstructed BTC/NOK price history.
