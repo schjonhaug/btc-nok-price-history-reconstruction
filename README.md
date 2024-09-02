@@ -21,7 +21,7 @@ https://raw.githubusercontent.com/marcosebarreto/Datasets/master/BCHARTS-MTGOXUS
 
 ### Norges Bank
 
-https://data.norges-bank.no/api/data/EXR/B.USD.NOK.SP?format=csv&startPeriod=2010-07-16&endPeriod=2014-02-25&bom=include
+https://data.norges-bank.no/api/data/EXR/B.USD.NOK.SP?format=csv&startPeriod=2010-07-16&endPeriod=2014-06-01&bom=include
  
 
 
@@ -29,10 +29,4 @@ https://data.norges-bank.no/api/data/EXR/B.USD.NOK.SP?format=csv&startPeriod=201
 
 They are saved in the `sources` folder and are the basis for the reconstructions.
 
-
-## Setup
-```sh
-pip install -r requirements.txt
-```
-
-## Usage
+ 
