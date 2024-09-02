@@ -1,13 +1,13 @@
 # Bitcoin Norwegian Krone (BTC/NOK) Price History Reconstruction
 
-This repository contains the code and data used to reconstruct the Bitcoin Norwegian Krone (BTC/NOK) price history from 2010 to 2014, prior to [Bitmynt](https://bitmynt.no) having their own ticker. At that time, Bitmynt was the sole Norwegian Bitcoin exchange. Initially, they used the [MtGox](https://en.wikipedia.org/wiki/Mt._Gox) rate in USD, converted to NOK using the latest exchange rate from [Norges Bank](https://www.norges-bank.no/en/), with an additional 2.5% margin.
+This repository contains the code and data used to reconstruct the Bitcoin Norwegian Krone (BTC/NOK) price history from 2010 to 2014, used by Norway’s oldest Bitcoin OTC, [Bitmynt](https://bitmynt.no), before they had their own ticker. Initially, they used the [MtGox](https://en.wikipedia.org/wiki/Mt._Gox) rate in USD, converted to NOK using the latest exchange rate from [Norges Bank](https://www.norges-bank.no/en/), with an additional 2.5% margin.
 
 During this period, Norges Bank published the daily exchange rate around 14:30 CET. Consequently, Friday's krone exchange rate was valid until 14:30 on Monday. However, due to data limitations, we use the Friday rate for Saturday and Sunday, and the Monday rate for Monday.
 
 From January 2014 onward, Bitmynt began adjusting the margin in response to the increasing divergence of the MtGox rate from other exchanges. Therefore, for practical purposes, we have switched to using [Bitstamp](https://www.bitstamp.net) data from the beginning of 2014 until the start of the Bitmynt ticker history.
 
 
-## Data Sources
+## Input
 
 These are the data sources used to reconstruct the price history:
 
