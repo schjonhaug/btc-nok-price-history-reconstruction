@@ -28,4 +28,7 @@ def bitstamp():
     # Convert DataFrame to list of lists (without labels)
     result = df.values.tolist()
 
+    # Add 'bitstamp' as the source for each data point
+    result = [[date, price, 'bitstamp'] for date, price in result]
+
     return result

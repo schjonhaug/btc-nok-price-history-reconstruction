@@ -1,5 +1,5 @@
 def interpolate_zero_values(data):
-    zero_indices = [i for i, (_, price) in enumerate(data) if price == 0]
+    zero_indices = [i for i, (_, price, _) in enumerate(data) if price == 0]
     
     if zero_indices:
         start_idx = zero_indices[0]
@@ -14,6 +14,6 @@ def interpolate_zero_values(data):
             
             for i, idx in enumerate(zero_indices):
                 interpolated_value = start_value + step * (i + 1)
-                data[idx] = (data[idx][0], interpolated_value)
+                data[idx] = (data[idx][0], interpolated_value, 'interpolated')
     
     return data

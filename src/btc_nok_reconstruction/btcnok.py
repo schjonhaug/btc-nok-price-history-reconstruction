@@ -13,7 +13,7 @@ def btcnok(btc_usd_data):
     None: Outputs a CSV file with the reconstructed BTC/NOK prices.
     """
     # Convert the input list of lists to a DataFrame
-    btc_usd_df = pd.DataFrame(btc_usd_data, columns=['Date', 'Close'])
+    btc_usd_df = pd.DataFrame(btc_usd_data, columns=['Date', 'Close', 'Source'])
     btc_usd_df['Date'] = pd.to_datetime(btc_usd_df['Date'])
     btc_usd_df.set_index('Date', inplace=True)
 
@@ -36,7 +36,6 @@ def btcnok(btc_usd_data):
 
     # Calculate BTC/NOK price with 2.5% fee and round to 6 decimal places
     combined_data['BTC_NOK'] = (combined_data['Close'].astype(float) * combined_data['USD_NOK'].astype(float) * 1.025).round(6)
- 
 
     # Reset index to make Date a column again
     combined_data.reset_index(inplace=True)
@@ -44,8 +43,8 @@ def btcnok(btc_usd_data):
     # Rename 'Close' to 'BTC_USD' for clarity
     combined_data = combined_data.rename(columns={'Close': 'BTC_USD', 'index': 'Date'})
 
-    # Select only the desired columns 
-    final_data = combined_data[['Date', 'BTC_USD', 'USD_NOK', 'BTC_NOK']]
+    # Select only the desired columns, including the Source column
+    final_data = combined_data[['Date', 'BTC_USD', 'USD_NOK', 'BTC_NOK', 'Source']]
 
     # Remove rows where BTC_USD is NaN
     final_data = final_data.dropna(subset=['BTC_USD'])
