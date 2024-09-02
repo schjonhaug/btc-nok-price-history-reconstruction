@@ -11,21 +11,15 @@ From January 2014 onward, Bitmynt began adjusting the margin in response to the 
 
 These are the data sources used to reconstruct the price history:
 
-### MtGox BTC/USD(data from 2010-2014)
-
-https://raw.githubusercontent.com/marcosebarreto/Datasets/master/BCHARTS-MTGOXUSD.csv
-
-### Bitstamp BTC/USD (data from 2014)
-
-https://www.bitstamp.net/api/v2/ohlc/btcusd/?step=86400&limit=120&end=1398895200
-
-### Norges Bank USD/NOK (data from 2010-2014)
-
-https://data.norges-bank.no/api/data/EXR/B.USD.NOK.SP?format=csv&startPeriod=2010-07-16&endPeriod=2014-06-01&bom=include
- 
+* [MtGox](https://raw.githubusercontent.com/marcosebarreto/Datasets/master/BCHARTS-MTGOXUSD.csv) BTC/USD exchange rates from 2010-2014  
+* [Bitstamp](https://www.bitstamp.net/api/v2/ohlc/btcusd/?step=86400&limit=120&end=1398895200) BTC/USD exchange rates from 2014
+* [Norges Bank](https://data.norges-bank.no/api/data/EXR/B.USD.NOK.SP?format=csv&startPeriod=2010-07-16&endPeriod=2014-06-01&bom=include) USD/NOK exchange rates from 2010-2014
 
 
-They are saved in the `src/btcnok/data` folder and are the basis for the reconstructions.
+ They are saved in the `src/btcnok/data` folder and are the basis for the reconstructions.
+
+
+
 
 
 ## Usage

@@ -3,6 +3,15 @@ from io import StringIO
 import os
 
 def btcnok(btc_usd_data):
+    """
+    Convert BTC/USD data to BTC/NOK using historical USD/NOK exchange rates.
+
+    Parameters:
+    btc_usd_data (list of lists): Historical BTC/USD data with each sublist containing ['Date', 'Close'].
+
+    Returns:
+    None: Outputs a CSV file with the reconstructed BTC/NOK prices.
+    """
     # Convert the input list of lists to a DataFrame
     btc_usd_df = pd.DataFrame(btc_usd_data, columns=['Date', 'Close'])
     btc_usd_df['Date'] = pd.to_datetime(btc_usd_df['Date'])
@@ -19,7 +28,7 @@ def btcnok(btc_usd_data):
     # And Norges Bank do not publish the exchange rate on Saturdays.
     all_dates = pd.date_range(start=min(btc_usd_df.index.min(), usd_nok_data.index.min()), end=btc_usd_df.index.max())
 
-    # Reindex USD/NOK data and forward fill
+    # Reindex USD/NOK data and forward fill missing values
     usd_nok_data = usd_nok_data.reindex(all_dates).ffill()
 
     # Combine datasets
@@ -37,10 +46,10 @@ def btcnok(btc_usd_data):
     # Rename 'Close' to 'BTC_USD' for clarity
     combined_data = combined_data.rename(columns={'Close': 'BTC_USD', 'index': 'Date'})
 
-    # Select only the desired columns
-    final_data = combined_data[['Date', 'BTC_USD', 'USD_NOK', 'BTC_NOK', 'BTC_NOK_with_fee']]
+    # Select only the desired columns, excluding 'BTC_NOK'
+    final_data = combined_data[['Date', 'BTC_USD', 'USD_NOK', 'BTC_NOK_with_fee']]
 
-    # Remove rows where BTC_USD is NaN (this will remove July 16, 2010)
+    # Remove rows where BTC_USD is NaN
     final_data = final_data.dropna(subset=['BTC_USD'])
 
     # Create final CSV
@@ -57,4 +66,3 @@ def btcnok(btc_usd_data):
 
     print("\nNumber of rows in final dataset:")
     print(f"Final data: {len(final_data)}")
- 
