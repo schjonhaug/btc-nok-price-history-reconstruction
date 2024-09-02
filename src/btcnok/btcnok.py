@@ -14,7 +14,9 @@ def btcnok(btc_usd_data):
     usd_nok_data = usd_nok_data.rename(columns={'TIME_PERIOD': 'Date', 'OBS_VALUE': 'USD_NOK'})
     usd_nok_data.set_index('Date', inplace=True)
 
-    # Create a date range that includes July 16, 2010
+    # Create a date range that includes July 16, 2010. We need to include this date, 
+    # because the first BTC/USD is from July 17, 2010, which was a Saturday. 
+    # And Norges Bank do not publish the exchange rate on Saturdays.
     all_dates = pd.date_range(start=min(btc_usd_df.index.min(), usd_nok_data.index.min()), end=btc_usd_df.index.max())
 
     # Reindex USD/NOK data and forward fill

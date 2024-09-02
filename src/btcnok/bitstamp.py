@@ -2,6 +2,7 @@ import os
 import json
 import pandas as pd
 
+
 def bitstamp():
     # Set the data directory
     data_dir = os.path.join(os.path.dirname(__file__), 'data')
