@@ -26,6 +26,8 @@ def mtgox():
     
     # Convert DataFrame to list of lists (without labels)
     result = btc_usd_data.values.tolist()
+
+
     
     return result
 
