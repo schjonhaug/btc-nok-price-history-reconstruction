@@ -1,23 +1,26 @@
-# Bitcoin Norwegian Krone (BTC/NOK) Price History Reconstruction
+# Reconstructing Bitcoin Norwegian Krone (BTC/NOK) Price History
 
-This repository contains the code and data used to reconstruct the Bitcoin Norwegian Krone (BTC/NOK) price history from 2010 to 2014, used by Norway’s oldest Bitcoin OTC, [Bitmynt](https://bitmynt.no), before they had their own ticker. Initially, they used the [MtGox](https://en.wikipedia.org/wiki/Mt._Gox) rate in USD, converted to NOK using the latest exchange rate from [Norges Bank](https://www.norges-bank.no/en/), with an additional 2.5% margin.
+This project aims to reconstruct the Bitcoin Norwegian Krone (BTC/NOK) price history from 2010 to 2014, as utilized by Norway's pioneering Bitcoin OTC, [Bitmynt](https://bitmynt.no), prior to implementing their own ticker. The reconstruction process involves several key components:
 
-During this period, Norges Bank published the daily exchange rate around 14:30 CET. Consequently, Friday's krone exchange rate was valid until 14:30 on Monday. However, due to data limitations, we use the Friday rate for Saturday and Sunday, and the Monday rate for Monday.
+1. Original Method: Bitmynt initially calculated their rates by converting the [MtGox](https://en.wikipedia.org/wiki/Mt._Gox) USD price to NOK. They used the most recent exchange rate from [Norges Bank](https://www.norges-bank.no/en/) and added a 2.5% margin.
 
-From January 2014 onward, Bitmynt began adjusting the margin in response to the increasing divergence of the MtGox rate from other exchanges. Therefore, for practical purposes, we have switched to using [Bitstamp](https://www.bitstamp.net) data from the beginning of 2014 until the start of the Bitmynt ticker history.
+2. Exchange Rate Updates: Norges Bank typically published daily exchange rates at about 14:30 CET. This meant the Friday krone exchange rate was used until 14:30 the following Monday. In our reconstruction, due to data limitations, we apply Friday's rate for Saturday and Sunday, and use Monday's rate throughout Monday.
 
+3. Methodology Adaptation: In early 2014, Bitmynt began adjusting their margin to reflect the growing gap between MtGox rates and other exchanges. To account for this, our reconstruction switches to [Bitstamp](https://www.bitstamp.net) data from early 2014 until Bitmynt's own price history begins.
 
-## Input
+This repository contains the code and data used in this historical price reconstruction effort, as well as the final reconstructed CSV file.
 
-These are the data sources used to reconstruct the price history:
+## Data Sources
 
-* [MtGox](https://raw.githubusercontent.com/marcosebarreto/Datasets/master/BCHARTS-MTGOXUSD.csv) BTC/USD exchange rates from 2010-2014  
-* [Bitstamp](https://www.bitstamp.net/api/v2/ohlc/btcusd/?step=86400&limit=120&end=1398895200) BTC/USD exchange rates from 2014
-* [Norges Bank](https://data.norges-bank.no/api/data/EXR/B.USD.NOK.SP?format=csv&startPeriod=2010-07-16&endPeriod=2014-06-01&bom=include) USD/NOK exchange rates from 2010-2014
+To reconstruct the historical price data, we utilized the following sources:
 
-They are saved in the `src/btc_nok_reconstruction/data` folder and are the basis for the reconstructions.
+* BTC/USD exchange rates from [MtGox](https://raw.githubusercontent.com/marcosebarreto/Datasets/master/BCHARTS-MTGOXUSD.csv) (covering 2010-2014)
+* BTC/USD exchange rates from [Bitstamp](https://www.bitstamp.net/api/v2/ohlc/btcusd/?step=86400&limit=120&end=1398895200) (for 2014)
+* USD/NOK exchange rates from [Norges Bank](https://data.norges-bank.no/api/data/EXR/B.USD.NOK.SP?format=csv&startPeriod=2010-07-16&endPeriod=2014-06-01&bom=include) (spanning 2010-2014)
 
-One minor issue is that MtGox prices are missing for the period 2011-06-20 to 2011-06-25.
+These datasets are stored in the data folder and form the foundation of our reconstructions.
+
+One challenge we encountered was missing MtGox prices for the period 2011-06-20 to 2011-06-25, as shown in this sample:
 
 ```csv
 2011-06-27,16.45001,18.0,15.0,16.75004,31452.5444794,535096.370101,17.0128165768
@@ -36,6 +39,6 @@ To resolve this discrepancy, we interpolate the missing values.
 
 ## Output
 
-Running the `btc_nok_reconstruction.py` script will create a CSV file in the root folder called [btc-nok-price-history-reconstruction.csv](btc-nok-price-history-reconstruction.csv) with the reconstructed BTC/NOK price history.
+Running the `btc_nok_reconstruction.py` script will create a CSV file in the root folder called [btc-nok-price-history-reconstruction.csv](btc-nok-price-history-reconstruction.csv) with the reconstructed BTC/NOK price history including Bitmynt's margin adjustments, as well as what the source of the price was for each row.
 
 For convenience, the file is also included in the repository.
