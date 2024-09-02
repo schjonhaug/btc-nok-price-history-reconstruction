@@ -14,6 +14,6 @@ def interpolate_zero_values(data):
             
             for i, idx in enumerate(zero_indices):
                 interpolated_value = start_value + step * (i + 1)
-                data[idx] = (data[idx][0], interpolated_value, 'interpolated')
+                data[idx] = (data[idx][0], interpolated_value, 'Interpolated')
     
     return data

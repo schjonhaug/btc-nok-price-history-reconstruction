@@ -27,8 +27,8 @@ def mtgox():
     # Convert DataFrame to list of lists (without labels)
     result = btc_usd_data.values.tolist()
     
-    # Add 'mtgox' as the source for each data point
-    result = [[date, price, 'mtgox'] for date, price in result]
+    # Add 'MtGox' as the source for each data point
+    result = [[date, price, 'MtGox'] for date, price in result]
     
     return result
 
