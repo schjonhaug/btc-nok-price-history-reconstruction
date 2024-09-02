@@ -40,11 +40,17 @@ def btcnok(btc_usd_data):
     # Reset index to make Date a column again
     combined_data.reset_index(inplace=True)
 
-    # Rename 'Close' to 'BTC_USD' for clarity
-    combined_data = combined_data.rename(columns={'Close': 'BTC_USD', 'index': 'Date'})
+    # Rename 'Close' to 'BTC_USD' for clarity and capitalize all column names
+    combined_data = combined_data.rename(columns={
+        'Close': 'BTC_USD',
+        'index': 'DATE',
+        'USD_NOK': 'USD_NOK',
+        'BTC_NOK': 'BTC_NOK',
+        'Source': 'SOURCE'
+    })
 
     # Select only the desired columns, including the Source column
-    final_data = combined_data[['Date', 'BTC_USD', 'USD_NOK', 'BTC_NOK', 'Source']]
+    final_data = combined_data[['DATE', 'BTC_USD', 'USD_NOK', 'BTC_NOK', 'SOURCE']]
 
     # Remove rows where BTC_USD is NaN
     final_data = final_data.dropna(subset=['BTC_USD'])
@@ -52,7 +58,7 @@ def btcnok(btc_usd_data):
     # Create final CSV
     try:
         csv_path = 'btc-nok-price-history-reconstruction.csv'
-        final_data.to_csv(csv_path, index=False)
+        final_data.to_csv(csv_path, index=False, columns=['DATE', 'BTC_USD', 'USD_NOK', 'BTC_NOK', 'SOURCE'])
         print(f"CSV file '{csv_path}' has been created with {len(final_data)} rows.")
         print(f"File path: {os.path.abspath(csv_path)}")
     except Exception as e:
