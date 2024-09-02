@@ -24,4 +24,15 @@ https://raw.githubusercontent.com/marcosebarreto/Datasets/master/BCHARTS-MTGOXUS
 https://data.norges-bank.no/api/data/EXR/B.USD.NOK.SP?format=csv&startPeriod=2010-07-16&endPeriod=2014-02-25&bom=include
  
 
-They are saved in the `sources` folder in case they are needed for future reference.
+
+
+
+They are saved in the `sources` folder and are the basis for the reconstructions.
+
+
+## Setup
+```sh
+pip install -r requirements.txt
+```
+
+## Usage
