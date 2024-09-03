@@ -1,5 +1,8 @@
 # Reconstructing Bitcoin Norwegian Krone (BTC/NOK) Price History
 
+![BTC/NOK Price History](btcnok.png)
+
+
 This project aims to reconstruct the Bitcoin Norwegian Krone (BTC/NOK) price history from 2010 to 2014, as utilized by Norway's pioneering Bitcoin OTC, [Bitmynt](https://bitmynt.no), prior to implementing their own ticker. The reconstruction process involves several key components:
 
 1. Original Method: Bitmynt initially calculated their rates by converting the [MtGox](https://en.wikipedia.org/wiki/Mt._Gox) USD price to NOK. They used the most recent exchange rate from [Norges Bank](https://www.norges-bank.no/en/) and added a 2.5% margin.
