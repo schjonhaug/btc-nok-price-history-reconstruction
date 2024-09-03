@@ -28,6 +28,8 @@ These datasets are stored in the data folder and form the foundation of our reco
 One challenge we encountered was missing MtGox prices for the period 2011-06-20 to 2011-06-25, as shown in this sample:
 
 ```csv
+Date,Open,High,Low,Close,Volume (BTC),Volume (Currency),Weighted Price
+...
 2011-06-27,16.45001,18.0,15.0,16.75004,31452.5444794,535096.370101,17.0128165768
 2011-06-26,17.51001,17.51001,14.01,16.45001,15053.9269271,234621.797323,15.585421562
 2011-06-25,0.0,0.0,0.0,0.0,0.0,0.0,0.0
