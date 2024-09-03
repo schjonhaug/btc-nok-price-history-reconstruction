@@ -13,6 +13,8 @@ This project aims to reconstruct the Bitcoin Norwegian Krone (BTC/NOK) price his
 
 This repository contains the code and data used in this historical price reconstruction effort, as well as the final reconstructed CSV file.
 
+Thanks to Sturle Sunde at Bitmynt for his help in reconstructing the price history.
+
 ## Data Sources
 
 To reconstruct the historical price data, we utilized the following sources:
