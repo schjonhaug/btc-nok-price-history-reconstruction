@@ -8,7 +8,7 @@ def bitstamp():
     data_dir = os.path.join(os.path.dirname(__file__), 'data')
 
     # Read BTC/USD data from Bitstamp JSON file
-    bitstamp_file = os.path.join(data_dir, 'bitstamp-btc-usd-may-2014.json')
+    bitstamp_file = os.path.join(data_dir, 'bitstamp-btc-usd-from-2014-01-01-to-2014-04-09.json')
     with open(bitstamp_file, 'r') as f:
         bitstamp_data = json.load(f)
 

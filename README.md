@@ -9,7 +9,7 @@ This project aims to reconstruct the Bitcoin Norwegian Krone (BTC/NOK) price his
 
 2. Exchange Rate Updates: Norges Bank typically published daily exchange rates at about 14:30 CET. This meant the Friday krone exchange rate was used until 14:30 the following Monday. In our reconstruction, due to data limitations, we apply Friday's rate for Saturday and Sunday, and use Monday's rate throughout Monday.
 
-3. Methodology Adaptation: In early 2014, Bitmynt began adjusting their margin to reflect the growing gap between MtGox rates and other exchanges. To account for this, our reconstruction switches to [Bitstamp](https://www.bitstamp.net) data from early 2014 until Bitmynt's own price history begins.
+3. Methodology Adaptation: In early 2014, Bitmynt began adjusting their margin to reflect the growing gap between MtGox rates and other exchanges. To account for this, our reconstruction switches to [Bitstamp](https://www.bitstamp.net) data from early 2014 until Bitmynt's own price history begins 10th of April 2014.
 
 This repository contains the code and data used in this historical price reconstruction effort, as well as the final reconstructed CSV file.
 
