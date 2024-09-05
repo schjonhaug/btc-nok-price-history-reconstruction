@@ -34,8 +34,8 @@ def btcnok(btc_usd_data):
     # Combine datasets
     combined_data = pd.concat([btc_usd_df, usd_nok_data], axis=1)
 
-    # Calculate BTC/NOK price with 2.5% fee and round to 6 decimal places
-    combined_data['BTC_NOK'] = (combined_data['Close'].astype(float) * combined_data['USD_NOK'].astype(float) * 1.025).round(6)
+    # Calculate BTC/NOK price with 2.5% fee and round to 2 decimal places
+    combined_data['BTC_NOK'] = (combined_data['Close'].astype(float) * combined_data['USD_NOK'].astype(float) * 1.025).round(2)
 
     # Reset index to make Date a column again
     combined_data.reset_index(inplace=True)
